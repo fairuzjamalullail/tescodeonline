@@ -1,0 +1,33 @@
+<a [routerLink]="'/add-data'" class="btn btn success">
+		<i class="fa fa-plus"></i> add
+</a>
+
+<table class="table table-striped tabel hover table-bordered">
+<thead>
+		<tr>
+			<th>Nomor Rekening</th>
+			<th>Nama</th>
+			<th>Alamat</th>
+			<th>Nomor HP</th>
+			<th>Aksi</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let row of tabungan">
+			<td>{{ row.no_rekening}}</td>
+			<td>{{ row.nama}}</td>
+			<td>{{row.alamat}}</td>
+			<td>{{ row.no_hp}}</td>
+			<td>
+				<div class="btn-group">
+					<button [routerLink]="['/edit-data', row.id]" class="btn btn-primary">
+						<i class="fa fa-edit"></i>
+					</button>
+					<button class="btn btn-danger" (click)="deleteTabungan(row.id)">
+						<i class="fa fa-trash"></i>
+					</button>
+			    </div>
+			  </td>
+		</tr>
+</tbody>
+</table>
